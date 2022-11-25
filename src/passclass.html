@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassClass</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="passclass.css">
+</head>
+
+<body>
+    <!-- <div class="container text-center">
+    <nav class="row">
+        <img class="col-sm-3" src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt="logo">
+        <div class="col-sm-6">
+            <div class="row">
+                <a class="col-4 col-sm-4" href="">Main</a>
+                <a class="col-4 col-sm-4" href="">Questions</a>
+                <a class="col-4 col-sm-4" href="">Donation</a>
+            </div>
+        </div>
+        <a class="col-sm-3" href="">Login/Sign Up</a>
+    </nav>
+</div> -->
+    <nav class="navbar navbar-expand-lg bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/spotify-icon-marilyn-scott-0.png" alt=""
+                    width="30" height="30" class="d-inline-block align-text-top">
+                PassClass
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto gap-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a role="button" data-bs-toggle="dropdown" class="nav-link dropdown-toggle"
+                            href="">Tutorials</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="" class="dropdown-item">Page 1</a></li>
+                            <li><a href="" class="dropdown-item">Instruction 2</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a href="" class="dropdown-item">Something Else</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Donation</a>
+                    </li>
+                </ul>
+                <a role="button" class="btn btn-outline-primary me-3" href="">Login/Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    <div class="table-responsive-md">
+        <table class="table mt-4 border-top border-1">
+            <thead>
+                <tr style="text-align: center;">
+                    <th>Priority</th>
+                    <!--Add row coloring after-->
+                    <th>Course Name</th>
+                    <th>Deliverable Type</th>
+                    <th>Deliverable Name</th>
+                    <th>Due Date</th>
+                    <th>
+                        <button onclick="onClickNewEvent()" class="btn text-gray align-text-middle"
+                            style="background-color:rgb(177, 177, 177);color: black;font-weight: 600; display: flex; align-items: center;"
+                            role="button">
+                            Add Event
+                            <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" width="25" height="25"
+                                style="margin-left: 0.25rem;" alt="">
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="mainTaskBody">
+                <tr id="inputRow" class="trStyle" align="center">
+                    <td>
+                        <select class="form-select" name="" id="urgency">
+                            <option value="1">Urgent</option>
+                            <option value="2">Important</option>
+                            <option value="3">Later</option>
+                            <option value="4">Lowest</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div>
+                            <input id="courseName" size="1" class="form-control" type="text">
+                        </div>
+                    </td>
+                    <td>
+                        <select id="delivType" class="form-select" name="">
+                            <option value="Assignment">Assignment</option>
+                            <option value="Quiz">Quiz</option>
+                            <option value="Midterm">Midterm</option>
+                            <option value="customOption">Other</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div>
+                            <input id="delivName" size="1" class="form-control" 100%;" type="text">
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input id="dueDate" class="form-control" type="date">
+                        </div>
+
+                    </td>
+                    <td onclick="onClickSaveDeliverable()" align="left">
+                        <button>
+                            Save
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="passclass.JS"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
