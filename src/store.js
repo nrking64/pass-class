@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { DateTime } from "luxon"
+import {DateTime} from "luxon"
 
 Vue.use(Vuex)
 
@@ -12,27 +12,37 @@ const store = new Vuex.Store({
             DateTime.fromISO("2023-01-10"),
             DateTime.fromISO("2023-01-15"),
             DateTime.fromISO("2023-01-26"),
-          ],
-        items:[
+        ],
+        attributes: [
             {
-              courseName: "French",
-              deliverableType: "Quiz",
-              deliverableName: "Pronouns",
-              dueDate: "2023-01-10",
+                    key: 0,
+                    customData: {
+                        title: '',
+                        class: '',
+                        dates: ""
+                    }
+                }
+            ],
+        items: [
+            {
+                courseName: "French",
+                deliverableType: "Quiz",
+                deliverableName: "Pronouns",
+                dueDate: "2023-01-10",
             },
             {
-              courseName: "Math",
-              deliverableType: "Assignment",
-              deliverableName: "Functions",
-              dueDate: "2023-01-15",
+                courseName: "Math",
+                deliverableType: "Assignment",
+                deliverableName: "Functions",
+                dueDate: "2023-01-15",
             },
             {
-              courseName: "English",
-              deliverableType: "Midterm",
-              deliverableName: "Crysalids Essay",
-              dueDate: "2023-01-26",
+                courseName: "English",
+                deliverableType: "Midterm",
+                deliverableName: "Crysalids Essay",
+                dueDate: "2023-01-26",
             },
-          ],
+        ],
     },
     //   mutations is iteration or changes to a variable
     mutations: {

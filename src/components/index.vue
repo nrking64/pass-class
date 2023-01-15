@@ -41,11 +41,15 @@
                         ></b-form-input>
                     </b-form-group>
                     <b-form-group label="Due Date" label-for="Due Date">
-                        <b-form-datepicker
-                            v-model="form.dueDate"
-                            class="ml-3"
-                            id="Due Date"
-                        ></b-form-datepicker>
+                        <v-date-picker v-model="form.dueDate">
+                            <template v-slot="{ inputValue, inputEvents }">
+                                <input
+                                    class="ml-3 input_box"
+                                    :value="inputValue"
+                                    v-on="inputEvents"
+                                />
+                            </template>
+                        </v-date-picker>
                     </b-form-group>
                     <b-button class="ml-2 bg-info" @click="onSubmit" type="submit">Submit</b-button>
                 </b-form>
@@ -56,8 +60,6 @@
 </template>
 
 <script>
-import {DateTime} from "luxon";
-
 export default {
     name: "index-vue",
     components: {},
@@ -70,18 +72,34 @@ export default {
                 deliverableName: "",
                 dueDate: "",
             },
+            calendar_info: {
+                key: 0,
+                customData: {
+                    title: '',
+                    class: '',
+                    dates: ""
+                },
+            }
         };
-    },
+    }
+    ,
     methods: {
         onSubmit() {
+
             if (!this.form.courseName || !this.form.dueDate) {
                 return;
             }
-            this.$store.state.dates.push(DateTime.fromISO(this.form.dueDate));
-            this.$store.state.dates.sort();
+            console.log(this.form.dueDate)
+            this.calendar_info.key = this.$store.state.attributes[this.$store.state.attributes.length - 1].key + 1
+            this.calendar_info.customData.title = `${this.form.courseName} - ${this.form.deliverableName} ${this.form.deliverableType}`
+            this.calendar_info.customData.class = ""
+            this.calendar_info.customData.dates = this.form.dueDate
+            this.$store.state.attributes.push(this.calendar_info)
             this.$store.state.items.push(this.form);
+            console.log(this.$store.state.attributes[this.$store.state.attributes.length - 1].key)
             this.clearForm();
-        },
+        }
+        ,
         clearForm() {
             this.form = {
                 courseName: "",
@@ -89,9 +107,12 @@ export default {
                 deliverableName: "",
                 dueDate: "",
             };
-        },
-    },
-};
+        }
+        ,
+    }
+    ,
+}
+;
 </script>
 
 <style>
@@ -102,5 +123,12 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+}
+
+.input_box {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
 }
 </style>

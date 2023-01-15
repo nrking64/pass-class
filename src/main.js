@@ -3,7 +3,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from "./router"
 import store from"./store"
-import VCalendar from "./vcalendar"
+import "./vcalendar"
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
@@ -20,5 +20,4 @@ new Vue({
   render: h => h(App),
   router,
   store,
-  VCalendar
 }).$mount('#app')
