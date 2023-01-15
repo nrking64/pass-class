@@ -33,6 +33,7 @@ export default {
 
         }
     },
+
     // methods: {
     //     dateClass(ymd) {
     //         let class_text = "";
